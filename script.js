@@ -2,6 +2,13 @@
 const apiKey = "yourAPIkey";
 const apiUrl = "apiurl";
 
+const searchInput = document.querySelector(".searchCity input");
+const searchButton = document.querySelector(".searchCity button");
+
+searchButton.addEventListener("click", ()=>{
+    checkWeather(searchInput.value);
+});
+
 async function checkWeather(cityName) {
     const response = await fetch(apiUrl + cityName + `&appid=${apiKey}`);
     var data = await response.json();
@@ -14,9 +21,7 @@ async function checkWeather(cityName) {
     document.querySelector(".wind").innerHTML= data.wind.speed + "km/hr";
 }
 
-checkWeather();
-
-// const weatherCondition = data.weather[0].main;
+const weatherCondition = data.weather[0].main;
 
 // if (weatherCondition === "Clouds"){
 //     weatherIcon.src = "cloudIcon.png";
