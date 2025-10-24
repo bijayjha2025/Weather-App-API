@@ -1,44 +1,38 @@
 
-const searchInput = document.querySelector(".searchCity input");
-const searchButton = document.querySelector(".searchCity button");
-
-const weatherIcon = document.querySelector(".weatherIcon");
-const temperatureShow = document.querySelector(".temperatureShow");
-const cityName = document.querySelector(".cityName");
-const humidityValue = document.querySelector(".humidity");
-const windValue = document.querySelector(".wind");
-
-const apiKey = "api-key";
-const apiUrl = "";
+const apiKey = "yourAPIkey";
+const apiUrl = "apiurl";
 
 async function checkWeather(cityName) {
-    const apiUrl = ``
+    const response = await fetch(apiUrl + cityName + `&appid=${apiKey}`);
+    var data = await response.json();
+
+    console.log(data);
+    
+    document.querySelector(".temperatureShow").innerHTML= Math.round(data.main.temp) + "°C";
+    document.querySelector(".cityName").innerHTML= data.name;
+    document.querySelector(".humidity").innerHTML= data.main.humidity + "%";
+    document.querySelector(".wind").innerHTML= data.wind.speed + "km/hr";
 }
 
-const data = await response.json();
+checkWeather();
 
-cityName.textContent = data.cityName;
-temperatureShow.textContent = Math.round(data.main.temp) + "°C";
-humidityValue.textContent = data.main.humidity + "%";
-windValue.textContent = data.wind.speed + "km/hr";
+// const weatherCondition = data.weather[0].main;
 
-const weatherCondition = data.weather[0].main;
-
-if (weatherCondition === "Clouds"){
-    weatherIcon.src = 
-}
-else if (weatherCondition === "Clear"){
-    weatherIcon.src =
-}
-else if (weatherCondition === "Rain"){
-    weatherIcon.src =
-}
-else if (weatherCondition === "Drizzle"){
-    weatherIcon.src =
-}
-else if (weatherCondition === "Mist"){
-    weatherIcon.src =
-}
-else{
-    weatherIcon.src =
-}
+// if (weatherCondition === "Clouds"){
+//     weatherIcon.src = "cloudIcon.png";
+// }
+// else if (weatherCondition === "Clear"){
+//     weatherIcon.src = "clearSky.png";
+// }
+// else if (weatherCondition === "Rain"){
+//     weatherIcon.src = "rainyIcon.png"; 
+// }
+// else if (weatherCondition === "Drizzle"){
+//     weatherIcon.src = "drizzleIcon.png";
+// }
+// else if (weatherCondition === "Mist"){
+//     weatherIcon.src = "mistIcon.png";
+// }
+// else{
+//     weatherIcon.src = "default.png";
+// }
