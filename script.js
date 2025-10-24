@@ -21,3 +21,24 @@ cityName.textContent = data.cityName;
 temperatureShow.textContent = Math.round(data.main.temp) + "°C";
 humidityValue.textContent = data.main.humidity + "%";
 windValue.textContent = data.wind.speed + "km/hr";
+
+const weatherCondition = data.weather[0].main;
+
+if (weatherCondition === "Clouds"){
+    weatherIcon.src = 
+}
+else if (weatherCondition === "Clear"){
+    weatherIcon.src =
+}
+else if (weatherCondition === "Rain"){
+    weatherIcon.src =
+}
+else if (weatherCondition === "Drizzle"){
+    weatherIcon.src =
+}
+else if (weatherCondition === "Mist"){
+    weatherIcon.src =
+}
+else{
+    weatherIcon.src =
+}
