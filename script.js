@@ -14,3 +14,10 @@ const apiUrl = "";
 async function checkWeather(cityName) {
     const apiUrl = ``
 }
+
+const data = await response.json();
+
+cityName.textContent = data.cityName;
+temperatureShow.textContent = Math.round(data.main.temp) + "°C";
+humidityValue.textContent = data.main.humidity + "%";
+windValue.textContent = data.wind.speed + "km/hr";
