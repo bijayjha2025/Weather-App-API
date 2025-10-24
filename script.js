@@ -9,4 +9,8 @@ const humidityValue = document.querySelector(".humidity");
 const windValue = document.querySelector(".wind");
 
 const apiKey = "api-key";
+const apiUrl = "";
 
+async function checkWeather(cityName) {
+    const apiUrl = ``
+}
