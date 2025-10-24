@@ -1,13 +1,9 @@
 
-const apiKey = "yourAPIkey";
-const apiUrl = "apiurl";
+const apiKey = "apikey";
+const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
 
-const searchInput = document.querySelector(".searchCity input");
+const searchInputBox = document.querySelector(".searchCity input");
 const searchButton = document.querySelector(".searchCity button");
-
-searchButton.addEventListener("click", ()=>{
-    checkWeather(searchInput.value);
-});
 
 async function checkWeather(cityName) {
     const response = await fetch(apiUrl + cityName + `&appid=${apiKey}`);
@@ -21,23 +17,7 @@ async function checkWeather(cityName) {
     document.querySelector(".wind").innerHTML= data.wind.speed + "km/hr";
 }
 
-const weatherCondition = data.weather[0].main;
+searchButton.addEventListener("click", ()=>{
+    checkWeather(searchInputBox.value);
+})
 
-// if (weatherCondition === "Clouds"){
-//     weatherIcon.src = "cloudIcon.png";
-// }
-// else if (weatherCondition === "Clear"){
-//     weatherIcon.src = "clearSky.png";
-// }
-// else if (weatherCondition === "Rain"){
-//     weatherIcon.src = "rainyIcon.png"; 
-// }
-// else if (weatherCondition === "Drizzle"){
-//     weatherIcon.src = "drizzleIcon.png";
-// }
-// else if (weatherCondition === "Mist"){
-//     weatherIcon.src = "mistIcon.png";
-// }
-// else{
-//     weatherIcon.src = "default.png";
-// }
