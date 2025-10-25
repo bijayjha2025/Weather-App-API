@@ -94,3 +94,24 @@ body{
     font-size: 30px;
     margin-top: -10px;
 }
+
+.weather{
+    display: none;
+}
+
+.searchCity button:hover{
+    background-color: rgb(211, 252, 239);
+}
+
+.searchCity button:active{
+    background-color: rgb(178, 248, 172);
+}
+
+.errorMessage{
+    color: whitesmoke;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 10px;
+    text-align: left;
+    display: none;
+}
